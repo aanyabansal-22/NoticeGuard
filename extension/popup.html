@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NoticeGuard</title>
+  </head>
+  <body>
+    <!-- This is the Chrome extension popup shown when the toolbar icon is clicked. -->
+    <main>
+      <h1>NoticeGuard</h1>
+      <p>Verify suspicious government notices before you act.</p>
+
+      <div>
+        <label for="noticeText">Paste a notice or message</label><br />
+        <textarea id="noticeText" rows="6" placeholder="Paste the government notice here..."></textarea>
+      </div>
+
+      <div>
+        <label for="fileUpload">Upload a PDF or image (optional)</label><br />
+        <input id="fileUpload" type="file" accept=".pdf,.png,.jpg,.jpeg,application/pdf,image/png,image/jpeg" />
+      </div>
+      <p id="fileName" aria-live="polite"></p>
+
+      <button id="analyzeBtn" type="button">Analyze Notice</button>
+
+      <!-- JavaScript shows this while the analysis is running. -->
+      <p id="loading" hidden aria-live="polite">Analyzing notice...</p>
+
+      <!-- Kept intentionally simple so result UI can be styled later. -->
+      <section id="result" hidden aria-live="polite"></section>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>
