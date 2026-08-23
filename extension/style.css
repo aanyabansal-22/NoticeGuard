@@ -1,0 +1,95 @@
+/* Popup dimensions work well in Chrome's extension popup window. */
+:root {
+  --navy: #102a43;
+  --blue: #1769e0;
+  --blue-dark: #1055b5;
+  --ink: #243b53;
+  --muted: #627d98;
+  --line: #d9e2ec;
+  --surface: #f7faff;
+  --warning: #a15c00;
+  --warning-bg: #fff5db;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-width: 380px;
+  background: #ffffff;
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.popup { padding: 22px; }
+
+.hero { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 22px; }
+
+.logo {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+  place-items: center;
+  border-radius: 11px;
+  background: var(--navy);
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+h1, h2, h3, p { margin: 0; }
+h1 { color: var(--navy); font-size: 21px; }
+.hero p { margin-top: 4px; color: var(--muted); font-size: 13px; line-height: 1.4; }
+
+label { display: block; margin: 14px 0 7px; color: var(--navy); font-size: 13px; font-weight: 700; }
+label span { color: var(--muted); font-weight: 400; }
+
+textarea, input[type="file"] {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--ink);
+  font: inherit;
+}
+
+textarea { padding: 11px; resize: vertical; line-height: 1.4; }
+textarea:focus, input[type="file"]:focus { outline: 3px solid #cce1ff; border-color: var(--blue); }
+input[type="file"] { padding: 8px; font-size: 12px; background: var(--surface); }
+
+button {
+  display: flex;
+  width: 100%;
+  min-height: 42px;
+  margin-top: 18px;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--blue);
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+}
+button:hover { background: var(--blue-dark); }
+button:disabled { cursor: wait; opacity: 0.8; }
+
+.spinner { display: none; width: 16px; height: 16px; border: 2px solid #ffffff80; border-top-color: #fff; border-radius: 50%; animation: spin 0.7s linear infinite; }
+button.loading .spinner { display: block; }
+button.loading .button-text::after { content: "..."; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.result-card { margin-top: 20px; padding: 16px; border: 1px solid #f3d58b; border-radius: 10px; background: var(--warning-bg); }
+.result-header { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.eyebrow { color: var(--muted); font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+.verdict-badge { padding: 5px 8px; border-radius: 999px; background: #ffdf8b; color: #7a4400; font-size: 12px; font-weight: 700; }
+h2 { margin: 8px 0 15px; color: var(--navy); font-size: 18px; }
+.confidence-row { display: flex; justify-content: space-between; font-size: 13px; }
+.confidence-track { height: 7px; margin-top: 7px; overflow: hidden; border-radius: 999px; background: #f0d69d; }
+#confidence-bar { width: 0; height: 100%; border-radius: inherit; background: #d98500; transition: width 0.45s ease; }
+h3 { margin-top: 16px; color: var(--navy); font-size: 13px; }
+ul { margin: 8px 0 0; padding-left: 19px; }
+li { margin: 6px 0; color: #52677d; font-size: 12px; line-height: 1.35; }
+.disclaimer { margin-top: 16px; color: var(--muted); font-size: 11px; line-height: 1.4; text-align: center; }
